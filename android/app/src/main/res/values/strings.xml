@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">shop</string>
+    <string name="Email">Електронна пошта</string>
+    <string name="logined">Залогінитися</string>
+    <string name="password">Пароль</string>
+    <string name="email">Ектронна пошта</string>
+    <string name="login">Вхід</string>
+    <string name="logout">Вийти</string>
+</resources>

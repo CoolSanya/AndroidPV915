@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Shop.Web.Constants;
 using Shop.Web.Data.Entities.Identity;
 
@@ -14,6 +15,9 @@ namespace Shop.Web.Data
                 var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
                 try
                 {
+                    logger.LogInformation("Migrate DB DAtabases");
+                    var context = scope.ServiceProvider.GetRequiredService<AppEFContext>();
+                    context.Database.Migrate();
                     logger.LogInformation("Seeding Web And Localization Databases");
                     InitRoleAndUsers(scope);
                 }
@@ -48,6 +52,7 @@ namespace Shop.Web.Data
 
             if (!userManager.Users.Any())
             {
+                var logger = scope.ServiceProvider.GetRequiredService<ILogger<RoleManager<AppUser>>>();
                 string email = "admin@gmail.com";
                 var user = new AppUser
                 {
@@ -61,7 +66,12 @@ namespace Shop.Web.Data
                 var result = userManager.CreateAsync(user, "12345").Result;
                 if (result.Succeeded)
                 {
+                    logger.LogWarning("Create user " + user.UserName);
                     result = userManager.AddToRoleAsync(user, Roles.Admin).Result;
+                }
+                else
+                {
+                    logger.LogError("Faild create user " + user.UserName);
                 }
             }
         }

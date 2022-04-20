@@ -1,0 +1,31 @@
+2022-04-20T21:07:39.9751949+03:00  [INF] Migrate DB DAtabases (1954c508)
+2022-04-20T21:07:41.0583991+03:00  [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-04-20T21:07:41.6978710+03:00  [INF] Executed DbCommand ("59"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-04-20T21:07:41.8157166+03:00  [INF] Executed DbCommand ("14"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (SELECT 1 FROM pg_catalog.pg_class c JOIN pg_catalog.pg_namespace n ON n.oid=c.relnamespace WHERE c.relname='__EFMigrationsHistory');" (0723d8ff)
+2022-04-20T21:07:41.8407680+03:00  [INF] Executed DbCommand ("16"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT \"MigrationId\", \"ProductVersion\"
+FROM \"__EFMigrationsHistory\"
+ORDER BY \"MigrationId\";" (0723d8ff)
+2022-04-20T21:07:41.8552390+03:00  [INF] No migrations were applied. The database is already up to date. (503cba9d)
+2022-04-20T21:07:41.8553300+03:00  [INF] Seeding Web And Localization Databases (d8cfb29f)
+2022-04-20T21:07:42.0375852+03:00  [INF] Executed DbCommand ("14"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetRoles\" AS a)" (0723d8ff)
+2022-04-20T21:07:42.0540587+03:00  [INF] Executed DbCommand ("14"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT EXISTS (
+    SELECT 1
+    FROM \"AspNetUsers\" AS a)" (0723d8ff)
+2022-04-20T21:07:42.3376039+03:00  [INF] Now listening on: "http://127.0.0.1:5066" (d826f4b8)
+2022-04-20T21:07:42.3376678+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-04-20T21:07:42.3377001+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-04-20T21:07:42.3377189+03:00  [INF] Content root path: "D:\Shag\sem_5\Android\AndroidPV915\Shop.Web\Shop.Web\" (b5d60022)
+2022-04-20T21:18:08.2353483+03:00  [INF] Migrate DB DAtabases (1954c508)
+2022-04-20T21:18:08.8746151+03:00  [INF] Entity Framework Core "6.0.3" initialized '"AppEFContext"' using provider '"Npgsql.EntityFrameworkCore.PostgreSQL":"6.0.3+94d0a8eaeb9cf5af6ce55a9e59153c1a1be3244f"' with options: "None" (d2805559)
+2022-04-20T21:18:09.0642617+03:00  [ERR] Problem seed database 28P01: password authentication failed for user "pv915anddb" (5dd545b8)
+2022-04-20T21:18:09.1379534+03:00  [INF] Now listening on: "http://127.0.0.1:5066" (d826f4b8)
+2022-04-20T21:18:09.1380170+03:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-04-20T21:18:09.1380447+03:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-04-20T21:18:09.1380609+03:00  [INF] Content root path: "D:\Shag\sem_5\Android\AndroidPV915\Shop.Web\Shop.Web\" (b5d60022)

@@ -17,16 +17,19 @@ namespace Shop.Web.Controllers
     public class AccountController : ControllerBase
     {
         private readonly IMapper _mapper;
+        private readonly ILogger<AccountController> _logger;
         private readonly IJwtTokenService _jwtTokenService;
         private readonly UserManager<AppUser> _userManager;
         //private readonly ILogger<AccountController> _logger;
         private readonly AppEFContext _context;
         public AccountController(UserManager<AppUser> userManager,
-            IJwtTokenService jwtTokenService, IMapper mapper, AppEFContext context)
+            IJwtTokenService jwtTokenService, IMapper mapper, AppEFContext context,
+            ILogger<AccountController> logger)
         {
             _userManager = userManager;
             _mapper = mapper;
             _jwtTokenService = jwtTokenService;
+            _logger = logger;
             _context = context;
         }
 

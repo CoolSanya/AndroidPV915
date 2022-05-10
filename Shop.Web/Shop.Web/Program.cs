@@ -7,7 +7,6 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Shop.Web.Data;
 using Shop.Web.Data.Entities.Identity;
-using Shop.Web.Helpers;
 using Shop.Web.Mapper;
 using Shop.Web.Services;
 using System.Text;
@@ -85,9 +84,6 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddCors();
 
 var app = builder.Build();
-
-app.LoggerFile();
-
 app.UseCors(options =>
                 options.AllowAnyMethod().AllowAnyOrigin().AllowAnyHeader());
 
@@ -97,8 +93,6 @@ app.UseCors(options =>
     app.UseSwagger();
 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Shop.Web v1"));
 //}
-
-
 
 var dir = Path.Combine(Directory.GetCurrentDirectory(), "uploads");
 if (!Directory.Exists(dir))

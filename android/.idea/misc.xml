@@ -4,13 +4,18 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Shag/sem_5/Android/AndroidPV915(15.04)/android/app/src/main/res/layout-land/activity_main.xml" value="0.22134038800705466" />
+        <entry key="..\:/Shag/sem_5/Android/AndroidPV915(15.04)/android/app/src/main/res/layout/activity_edit_user.xml" value="0.15" />
+        <entry key="..\:/Shag/sem_5/Android/AndroidPV915(15.04)/android/app/src/main/res/layout/activity_login.xml" value="0.1953125" />
         <entry key="..\:/Shag/sem_5/Android/AndroidPV915(15.04)/android/app/src/main/res/layout/activity_main.xml" value="0.20380434782608695" />
-        <entry key="..\:/Shag/sem_5/Android/AndroidPV915(15.04)/android/app/src/main/res/layout/activity_register.xml" value="0.25" />
+        <entry key="..\:/Shag/sem_5/Android/AndroidPV915(15.04)/android/app/src/main/res/layout/activity_register.xml" value="0.1" />
         <entry key="..\:/Shag/sem_5/Android/AndroidPV915(15.04)/android/app/src/main/res/layout/activity_register_old.xml" value="0.16893115942028986" />
+        <entry key="..\:/Shag/sem_5/Android/AndroidPV915(15.04)/android/app/src/main/res/layout/activity_user.xml" value="0.25" />
         <entry key="..\:/Shag/sem_5/Android/AndroidPV915(15.04)/android/app/src/main/res/layout/activity_users.xml" value="0.1765625" />
+        <entry key="..\:/Shag/sem_5/Android/AndroidPV915(15.04)/android/app/src/main/res/layout/card_user.xml" value="0.25" />
         <entry key="..\:/Shag/sem_5/Android/AndroidPV915(15.04)/android/app/src/main/res/menu/main.xml" value="0.26145833333333335" />
         <entry key="..\:/Shag/sem_5/Android/AndroidPV915(15.04)/android/app/src/main/res/menu/register.xml" value="0.26145833333333335" />
         <entry key="..\:/Shag/sem_5/Android/AndroidPV915(15.04)/android/app/src/main/res/menu/users.xml" value="0.26145833333333335" />
+        <entry key="..\:/Shag/sem_5/Android/AndroidPV915/android/app/src/main/res/layout/activity_edit_user.xml" value="0.19746376811594202" />
         <entry key="..\:/Study/2022/12.Android - PV915/App/android/app/src/main/res/layout-land/activity_main.xml" value="0.21516754850088182" />
         <entry key="..\:/Study/2022/12.Android - PV915/App/android/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Study/2022/12.Android - PV915/App/android/app/src/main/res/layout/activity_main.xml" value="0.264" />

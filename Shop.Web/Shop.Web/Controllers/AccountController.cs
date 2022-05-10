@@ -17,19 +17,16 @@ namespace Shop.Web.Controllers
     public class AccountController : ControllerBase
     {
         private readonly IMapper _mapper;
-        private readonly ILogger<AccountController> _logger;
         private readonly IJwtTokenService _jwtTokenService;
         private readonly UserManager<AppUser> _userManager;
         //private readonly ILogger<AccountController> _logger;
         private readonly AppEFContext _context;
         public AccountController(UserManager<AppUser> userManager,
-            IJwtTokenService jwtTokenService, IMapper mapper, AppEFContext context,
-            ILogger<AccountController> logger)
+            IJwtTokenService jwtTokenService, IMapper mapper, AppEFContext context)
         {
             _userManager = userManager;
             _mapper = mapper;
             _jwtTokenService = jwtTokenService;
-            _logger = logger;
             _context = context;
         }
 
@@ -54,13 +51,27 @@ namespace Shop.Web.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        //[Authorize]
         [Route("users")]
         public async Task<IActionResult> Users()
         {
             var list = _context.Users.Select(x => _mapper.Map<UserItemViewModel>(x)).ToList();
 
             return Ok(list);
+        }
+
+        [HttpGet]
+        //[Authorize]
+        [Route("getuser/{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            //throw new AppException("Email or password is incorrect");
+            Thread.Sleep(1000);
+            var user = _context.Users
+                .FirstOrDefault(x => x.Id == id);
+            if (user == null)
+                return NotFound();
+            return Ok(_mapper.Map<UserItemViewModel>(user));
         }
 
         [HttpPost]

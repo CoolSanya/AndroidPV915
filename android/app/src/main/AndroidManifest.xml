@@ -15,6 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Shop">
         <activity
+            android:name=".account.EditUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".account.UserActivity"
+            android:exported="false" />
+        <activity
             android:name=".account.UsersActivity"
             android:exported="true" />
         <activity

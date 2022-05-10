@@ -8,15 +8,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
 import com.example.shop.R;
 import com.example.shop.account.dto.AccountResponseDTO;
+import com.example.shop.account.dto.EditUserDTO;
 import com.example.shop.account.dto.RegisterDTO;
 import com.example.shop.account.dto.ValidationRegisterDTO;
 import com.example.shop.account.network.AccountService;
@@ -29,15 +27,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class RegisterActivity extends AppCompatActivity {
-
-    EditText txtEmail;
+public class EditUserActivity extends AppCompatActivity {
     EditText txtFirstName;
     EditText txtSecondName;
     ImageView IVPreviewImage;
     EditText txtPhone;
-    EditText txtPassword;
-    EditText txtConfirmPassword;
 
     int SELECT_PICTURE = 200;
 
@@ -46,38 +40,16 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
-        txtEmail = findViewById(R.id.txtEmail);
+        setContentView(R.layout.activity_edit_user);
+
         txtFirstName = findViewById(R.id.txtEditFirstName);
         txtSecondName = findViewById(R.id.txtEditSecondName);
         txtPhone = findViewById(R.id.txtEditPhone);
         IVPreviewImage = findViewById(R.id.txtViewPhoto);
-        txtPassword = findViewById(R.id.txtPassword);
-        txtConfirmPassword = findViewById(R.id.txtConfirmPassword);
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.register, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent;
-        switch (item.getItemId()) {
-//            case R.id.m_register:
-//                intent = new Intent(this, RegisterActivity.class);
-//                startActivity(intent);
-//                return true;
-            case R.id.m_login:
-                intent = new Intent(this, LoginActivity.class);
-                startActivity(intent);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
+
+
     }
 
     public void selectImageClick(View view) {
@@ -127,26 +99,21 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void handleClick(View view) {
-        //textFieldEmail.setError("Вкажіть пошту");
-
-        RegisterDTO registerDTO = new RegisterDTO();
-        registerDTO.setEmail(txtEmail.getText().toString());
-        registerDTO.setFirstName(txtFirstName.getText().toString());
-        registerDTO.setSecondName(txtSecondName.getText().toString());
-        registerDTO.setPhoto(stringImgB64);
-        registerDTO.setPhone(txtPhone.getText().toString());
-        registerDTO.setPassword(txtPassword.getText().toString());
-        registerDTO.setConfirmPassword(txtConfirmPassword.getText().toString());
+        EditUserDTO editUserDTO = new EditUserDTO();
+        editUserDTO.setFirstName(txtFirstName.getText().toString());
+        editUserDTO.setSecondName(txtSecondName.getText().toString());
+        editUserDTO.setPhoto(stringImgB64);
+        editUserDTO.setPhone(txtPhone.getText().toString());
 
         AccountService.getInstance()
                 .jsonApi()
-                .register(registerDTO)
+                .editUser(editUserDTO)
                 .enqueue(new Callback<AccountResponseDTO>() {
                     @Override
                     public void onResponse(Call<AccountResponseDTO> call, Response<AccountResponseDTO> response) {
                         if (response.isSuccessful())
                         {
-                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                            Intent intent = new Intent(EditUserActivity.this, UsersActivity.class);
                             startActivity(intent);
                         }else {
                             try {
@@ -175,8 +142,6 @@ public class RegisterActivity extends AppCompatActivity {
                 str += item + "\n";
             }
         }
-        txtEmail.setError(str);
+        txtFirstName.setError(str);
     }
-
-
 }

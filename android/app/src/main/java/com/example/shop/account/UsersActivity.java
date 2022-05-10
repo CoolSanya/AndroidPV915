@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.shop.MainActivity;
 import com.example.shop.R;
@@ -49,7 +50,9 @@ public class UsersActivity extends AppCompatActivity {
                     public void onResponse(Call<List<UserDTO>> call, Response<List<UserDTO>> response) {
                         if(response.isSuccessful())
                         {
-                            adapter=new UsersAdapter(response.body());
+                            adapter=new UsersAdapter(response.body(),
+                                    UsersActivity.this::onClickUserItem,
+                                    UsersActivity.this::onClickUserEdit);
                             rcvUsers.setAdapter(adapter);
                         }
                     }
@@ -80,5 +83,25 @@ public class UsersActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void onClickUserItem(UserDTO user) {
+        //Toast.makeText(HomeApplication.getAppContext(), user.getEmail(), Toast.LENGTH_SHORT).show();
+
+        Intent userIntent = new Intent(UsersActivity.this, UserActivity.class);
+        Bundle b = new Bundle();
+        b.putLong("id", user.getId());
+        userIntent.putExtras(b);
+        startActivity(userIntent);
+    }
+
+    private void onClickUserEdit(UserDTO user) {
+        Intent editUserIntent = new Intent(UsersActivity.this, EditUserActivity.class);
+        Bundle b = new Bundle();
+        b.putLong("id", user.getId());
+        editUserIntent.putExtras(b);
+        startActivity(editUserIntent);
+
+        //Toast.makeText(HomeApplication.getAppContext(), user.getEmail(), Toast.LENGTH_SHORT).show();
     }
 }
